@@ -1,0 +1,19 @@
+{
+  "name": "image-gallery",
+  "version": "1.0.0",
+  "description": "image gallery",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Front-End-Ninjas/image-gallery.git"
+  },
+  "author": "josh glandorf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Front-End-Ninjas/image-gallery/issues"
+  },
+  "homepage": "https://github.com/Front-End-Ninjas/image-gallery#readme"
+}
