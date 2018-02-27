@@ -14,7 +14,7 @@ describe('Test querying the database', () => {
 
   afterAll(() => client.end());
 
-  test('Should get an array length of 1360', () => {
+  test('Should get an array length of 1500', () => {
     expect.assertions(2);
     return client.query('SELECT * FROM images')
       .then((res) => {
