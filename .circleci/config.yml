@@ -19,7 +19,7 @@ jobs:
       - image: circleci/postgres:10.2-alpine-ram
         environment:
         - POSTGRES_USER: admin
-        - POSTGRES_DB: thumbnail
+        - POSTGRES_DB: admin
 
     working_directory: ~/repo
 
