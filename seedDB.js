@@ -2,6 +2,7 @@ const express = require('express');
 const format = require('pg-format');
 const pg = require('pg');
 const path = require('path');
+const fs = require('fs');
 
 const app = express();
 
@@ -36,7 +37,7 @@ pool.connect((err, client) => {
   //   }
   //   console.log(result.rows);
   // });
-
+  console.log(fs.readFileSync(DIRNAME + '/seed_data.js'));
   const createQuery = format('CREATE TABLE images (product_id int, large_image_url varchar, small_gallery_image_url varchar);');
   myClient.query(createQuery, (err, result) => {
     if (err) {
