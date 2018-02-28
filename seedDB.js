@@ -28,13 +28,30 @@ pool.connect((err, client) => {
     console.log('listening on 8000');
   });
   myClient = client;
+
+  const dropQuery = format('DROP TABLE images;');
+  myClient.query(dropQuery, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log(result.rows);
+  });
+
+  const createQuery = format('CREATE TABLE images (product_id int, large_image_url varchar, small_gallery_image_url varchar);');
+  myClient.query(createQuery, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log(result.rows);
+  });
+
   const seedQuery = format('COPY images (product_id, large_image_url, small_gallery_image_url) FROM \'' + DIRNAME + '/seed_data.js\' WITH DELIMITER \',\';');
   myClient.query(seedQuery, (err, result) => {
     if (err) {
       console.log(err);
     }
-    console.log('Successfully seeded Database');
+    console.log(result.rows);
   });
 });
 
-// '\\COPY images (product_id, large_image_url, small_gallery_image_url) FROM \'./seed_data.js\' WITH DELIMITER \',\';'
+// ''COPY images (product_id, large_image_url, small_gallery_image_url) FROM \'' + DIRNAME + '/seed_data.js\' WITH DELIMITER \',\';'
