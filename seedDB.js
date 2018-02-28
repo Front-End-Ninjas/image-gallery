@@ -37,7 +37,7 @@ pool.connect((err, client) => {
   //   }
   //   console.log(result.rows);
   // });
-  console.log(fs.readFileSync(DIRNAME + '/seed_data.js'));
+  // console.log(fs.readFileSync(DIRNAME + '/seed_data.js'));
   const createQuery = format('CREATE TABLE images (product_id int, large_image_url varchar, small_gallery_image_url varchar);');
   myClient.query(createQuery, (err, result) => {
     if (err) {
@@ -46,7 +46,7 @@ pool.connect((err, client) => {
     console.log(result.rows);
   });
 
-  const seedQuery = format('COPY images (product_id, large_image_url, small_gallery_image_url) FROM \'' + DIRNAME + '/seed_data.js\' WITH DELIMITER \',\';');
+  const seedQuery = format('\\COPY images (product_id, large_image_url, small_gallery_image_url) FROM \'' + DIRNAME + '/seed_data.js\' WITH DELIMITER \',\';');
   myClient.query(seedQuery, (err, result) => {
     if (err) {
       console.log(err);
