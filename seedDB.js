@@ -45,7 +45,7 @@ pool.connect((err, client) => {
     console.log(result.rows);
   });
 
-  const seedQuery = format('COPY images (product_id, large_image_url, small_gallery_image_url) FROM \'' + DIRNAME + '/seed_data.js\' WITH DELIMITER \',\';');
+  const seedQuery = format('\\COPY images (product_id, large_image_url, small_gallery_image_url) FROM \'' + DIRNAME + '/seed_data.js\' WITH DELIMITER \',\';');
   myClient.query(seedQuery, (err, result) => {
     if (err) {
       console.log(err);
