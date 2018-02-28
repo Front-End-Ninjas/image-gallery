@@ -1,4 +1,6 @@
 const { Client } = require('pg');
+const seedData = require('../seed_data');
+const path = require('path');
 
 let connectionString;
 if (process.env.POSTGRES_USER && process.env.POSTGRES_DB) {
@@ -6,12 +8,16 @@ if (process.env.POSTGRES_USER && process.env.POSTGRES_DB) {
 } else {
   connectionString = 'postgres://localhost/admin';
 }
-
+console.log('THIS IS SEED DATA', seedData);
 const client = new Client(connectionString);
 
 describe('Test querying the database', () => {
   beforeAll(() => client.connect());
-
+  const DIRNAME = path.resolve();
+  // console.log('THIS IS DIRNAME', DIRNAME);
+  client.query('DROP TABLE images;');
+  client.query('CREATE TABLE images (product_id int, large_image_url varchar, small_gallery_image_url varchar);');
+  client.query('COPY images (product_id, large_image_url, small_gallery_image_url) FROM \'' + DIRNAME + '/seed_data.js\' WITH DELIMITER \',\';');
   afterAll(() => client.end());
 
   test('Should get an array length of 1500', () => {
