@@ -29,13 +29,13 @@ pool.connect((err, client) => {
   });
   myClient = client;
 
-  const dropQuery = format('DROP TABLE images;');
-  myClient.query(dropQuery, (err, result) => {
-    if (err) {
-      console.log(err);
-    }
-    console.log(result.rows);
-  });
+  // const dropQuery = format('DROP TABLE images;');
+  // myClient.query(dropQuery, (err, result) => {
+  //   if (err) {
+  //     console.log(err);
+  //   }
+  //   console.log(result.rows);
+  // });
 
   const createQuery = format('CREATE TABLE images (product_id int, large_image_url varchar, small_gallery_image_url varchar);');
   myClient.query(createQuery, (err, result) => {
