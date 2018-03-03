@@ -4,6 +4,7 @@ const path = require('path');
 
 const app = express();
 
+app.use(express.static(path.join(__dirname, '..', 'client')));
 app.use(express.static(path.join(__dirname, '..', 'images')));
 app.use('/images', images);
 
