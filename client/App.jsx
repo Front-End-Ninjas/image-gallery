@@ -1,5 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
+import axios from 'axios';
+import $ from 'jquery';
 import ImageView from './ImageView';
 import ImageViewList from './ImageViewList';
 
@@ -7,19 +9,50 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      images: [
-        { product_id: 1, large_image_url: 'electronics/url1.jpg', small_gallery_image_url: 'electronics/url1.jpg' },
-        { product_id: 2, large_image_url: 'electronics/url2.jpg', small_gallery_image_url: 'electronics/url2.jpg' },
-        { product_id: 3, large_image_url: 'electronics/url3.jpg', small_gallery_image_url: 'electronics/url3.jpg' },
-        { product_id: 4, large_image_url: 'electronics/url4.jpg', small_gallery_image_url: 'electronics/url4.jpg' },
-        { product_id: 5, large_image_url: 'electronics/url5.jpg', small_gallery_image_url: 'electronics/url5.jpg' },
-      ],
-      selectedImage: {
-        product_id: 1,
-      },
+      images: [],
+      selectedImage: {},
     };
     this.handleClick = this.handleClick.bind(this);
+    this.fetch = this.fetch.bind(this);
   }
+
+  componentDidMount() {
+    this.fetcher();
+  }
+
+
+  fetch() {
+    // let this = that;
+    //const id = 17; //Math.floor(Math.random() * 299);
+
+
+    $.ajax({
+      method: 'GET',
+      url: 'http://localhost:3000/images/17',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': '*',
+      },
+      //contentType: 'application/json',
+      success: (data) => {
+        console.log('GET success', data);
+        this.setState({ images: data });
+      },
+      error: function(data) {
+        console.error('GET was not successful', data);
+      }
+    })
+  }
+  fetcher() {
+    axios.get('http://localhost:3000/images/17')
+      .then(({ data }) => {
+        console.log('HELLO FROM AXIOS', data);
+        this.setState({ images: data });
+        console.log('STATE', this.state.images);
+      })
+  .catch(err => err);
+  }
+  
 
   handleClick(selected) {
     const id = selected.target.src.slice(29);
