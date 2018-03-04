@@ -2,7 +2,7 @@ import React from 'react';
 
 const ImageViewList = ({ images, handleClick }) => {
   return (
-    <div className="image-view-list">
+    <div>
       {
       images.map((image) => {
         return (

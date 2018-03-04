@@ -1,21 +1,18 @@
-body {
-  background: #f1f1f1;
-}
-
 .app-view {
   overflow: hidden;
   max-width: 500;
 }
 
-.image-view img{
-  max-width: 100%;
-  height: auto;
-  width: auto\9;
-  float: right;
+.image-view {
+  margin-left: 70px;
 }
 
-.imageDetail {
-  height: 100px;
+.image-view img {
+  max-width: 330px;
+}
+
+.image-view-list {
+  float: left;
 }
 
 .image-view-list-entry {
@@ -25,17 +22,8 @@ body {
 }
 
 .image-view-list-entry img {
-  max-width: 100px;
-  height: auto;
+  max-width: 50px;
 }
 
-.image-list-item {
-  font-size: 16px;
-  padding: 8px;
-}
 
-.image-list-entry-detail {
-  font-size: 12px;
-  color: #999;
-}
 
