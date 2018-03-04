@@ -1,7 +1,13 @@
 const request = require('supertest');
 const app = require('../server/app');
+const client = require('../database/pgClient');
 
 describe('Test the root path', () => {
+
+  beforeAll(() => client.connect());
+
+  afterAll(() => client.end());
+
   test('It should respond to a valid GET with 200', () => {
     return request(app).get('/').then((response) => {
       expect(response.statusCode).toBe(200);
@@ -15,14 +21,21 @@ describe('Test the root path', () => {
   });
 
   test('It should test the static serving of files', () => {
-    return request(app).get('/images/1').then((response) => {
+    return request(app).get('/item/1/images').then((response) => {
       expect(response.statusCode).toBe(200);
     });
   });
 
   test('It should 404 on a nonexistent file', () => {
-    return request(app).get('/images/9001').then((response) => {
+    return request(app).get('/item/9001/images').then((response) => {
       expect(response.statusCode).toBe(404);
+    });
+  });
+
+  test('It should return an array of length 5', () => {
+    return request(app).get('/item/1/images').then((response) => {
+      expect(response.statusCode).toBe(200);
+      expect(response.body.length).toBe(5);
     });
   });
 });
