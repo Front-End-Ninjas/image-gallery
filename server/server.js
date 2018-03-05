@@ -1,3 +1,7 @@
+const client = require('../database/pgClient');
+
 const app = require('./app');
 
-app.listen(3000, () => console.log('listening on port 3000'));
+client.connect();
+
+app.listen(3003, () => console.log('listening on port 3003')); // eslint-disable-line no-console

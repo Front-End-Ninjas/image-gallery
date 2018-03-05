@@ -1,0 +1,29 @@
+.app-view {
+  overflow: hidden;
+  max-width: 500;
+}
+
+.image-view {
+  margin-left: 70px;
+}
+
+.image-view img {
+  max-width: 330px;
+}
+
+.image-view-list {
+  float: left;
+}
+
+.image-view-list-entry {
+  position: relative;
+  border: 1px solid black;
+  max-width: 100px;
+}
+
+.image-view-list-entry img {
+  max-width: 50px;
+}
+
+
+

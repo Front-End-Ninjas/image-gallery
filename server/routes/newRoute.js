@@ -2,11 +2,10 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 
-const images = express.Router();
+const newRoute = express.Router();
 
-images.get('/:id', (req, res) => {
-  const imagePath = path.join(__dirname, '..', '..', 'images', `automotive/${req.params.id}.jpg`);
-
+newRoute.get('*', (req, res) => {
+  const imagePath = path.join(__dirname, '..', '..', 'images', `${req.url}`);
   fs.stat(imagePath, (err) => {
     if (err) {
       res.status(404).send(err);
@@ -16,4 +15,4 @@ images.get('/:id', (req, res) => {
   });
 });
 
-module.exports = images;
+module.exports = newRoute;
