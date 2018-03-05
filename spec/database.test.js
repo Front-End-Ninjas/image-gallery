@@ -11,7 +11,8 @@ const client = new Client(connectionString);
 
 describe('Test querying the database', () => {
   beforeAll(() => client.connect());
-  client.query('DROP TABLE images;');
+  // COMMENT IN LINE 15 IF NECESSARY FOR TESTING
+  // client.query('DROP TABLE images;');
   client.query('CREATE TABLE images (product_id int, large_image_url varchar, small_gallery_image_url varchar);');
   seedData.forEach((data) => {
     client.query('INSERT INTO images (product_id, large_image_url, small_gallery_image_url) values ($1, $2, $3);', [data.product_id, data.large_image_url, data.small_gallery_image_url]);
@@ -33,7 +34,7 @@ describe('Test querying the database', () => {
       .then(({ rows }) => {
         expect(rows.length).toBe(5);
         expect(rows[0]).toBeInstanceOf(Object);
-        expect(rows[0].large_image_url).toBe('movies/url1.jpg');
+        expect(rows[0].large_image_url).toBe('movies/1.jpg');
       });
   });
 
@@ -43,7 +44,7 @@ describe('Test querying the database', () => {
       .then(({ rows }) => {
         expect(rows.length).toBe(5);
         expect(rows[0]).toBeInstanceOf(Object);
-        expect(rows[0].small_gallery_image_url).toBe('movies/url1.jpg');
+        expect(rows[0].small_gallery_image_url).toBe('movies/1.jpg');
       });
   });
 });
