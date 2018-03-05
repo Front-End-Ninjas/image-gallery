@@ -20,11 +20,11 @@ describe('Test the root path', () => {
     });
   });
 
-  // test('It should test the static serving of files', () => {
-  //   return request(app).get('/item/1/images').then((response) => {
-  //     expect(response.statusCode).toBe(200);
-  //   });
-  // });
+  test('It should test the static serving of files', () => {
+    return request(app).get('/item/1/images').then((response) => {
+      expect(response.statusCode).toBe(200);
+    });
+  });
 
   test('It should 404 on a nonexistent file', () => {
     return request(app).get('/item/9001/images').then((response) => {
@@ -32,10 +32,10 @@ describe('Test the root path', () => {
     });
   });
 
-  // test('It should return an array of length 5', () => {
-  //   return request(app).get('/item/1/images').then((response) => {
-  //     expect(response.statusCode).toBe(200);
-  //     expect(response.body.length).toBe(5);
-  //   });
-  // });
+  test('It should return an array of length 5', () => {
+    return request(app).get('/item/1/images').then((response) => {
+      expect(response.statusCode).toBe(200);
+      expect(response.body.length).toBe(5);
+    });
+  });
 });

@@ -21,10 +21,10 @@ class App extends React.Component {
 
   fetcher() {
     const id = Math.floor(Math.random() * 299);
-    axios.get(`http://localhost:3000/item/${id}/images`)
+    axios.get(`http://localhost:3003/item/${id}/images`)
       .then(({ data }) => {
         this.setState({ images: data });
-        this.setState({ selectedImage: `http://localhost:3000/newRoute/${data[0].large_image_url}` });
+        this.setState({ selectedImage: `http://localhost:3003/newRoute/${data[0].large_image_url}` });
       })
       .catch(err => err);
   }
