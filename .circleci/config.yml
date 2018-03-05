@@ -39,7 +39,8 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run: npm server    
+      - run: npm run dev   
+      - run: npm run server    
 
       #- run: npm run database    
         
