@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack -d --watch",
     "test": "jest",
-    "database": "node seedDB.js"
+    "database": "node seedDB.js",
+    "server": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",
