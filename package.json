@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack -d --watch",
-    "test": "jest",
+    "server": "nodemon server/server.js",
     "database": "node seedDB.js",
-    "server": "nodemon server/server.js"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
