@@ -1,15 +1,12 @@
 const express = require('express');
-const format = require('pg-format');
 const pg = require('pg');
 const seedData = require('./seed_data');
 
 const app = express();
-const PGUSER = 'admin';
-const PGDATABASE = 'admin';
+const PGDATABASE = 'image';
 
 
 const config = {
-  user: PGUSER, // name of the user account
   database: PGDATABASE, // name of the database
   max: 10, // max number of clients in the pool
   idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
