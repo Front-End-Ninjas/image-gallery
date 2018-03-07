@@ -1,10 +1,9 @@
 import React from 'react';
-import { render } from 'react-dom';
 import axios from 'axios';
 import ImageView from './ImageView';
 import ImageViewList from './ImageViewList';
 
-class App extends React.Component {
+class imageGallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,8 +19,7 @@ class App extends React.Component {
   }
 
   fetcher() {
-    const id = Math.floor(Math.random() * 299);
-    axios.get(`http://localhost:3003/item/${id}/images`)
+    axios.get(`/item/${this.props.id}/images`)
       .then(({ data }) => {
         this.setState({ images: data });
         this.setState({ selectedImage: `http://localhost:3003/newRoute/${data[0].large_image_url}` });
@@ -50,4 +48,4 @@ class App extends React.Component {
   }
 }
 
-render(<App />, document.getElementById('app'));
+window.imageGallery = imageGallery;

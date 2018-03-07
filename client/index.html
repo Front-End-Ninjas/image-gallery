@@ -5,7 +5,17 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div id="app" />
+    <div id="image-gallery" />
     <script src="bundle.js" type="text/javascript"></script>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="bundle.js"></script>
+    <script>
+      const itemId = Math.floor(Math.random() * 299);
+      ReactDOM.render(
+        React.createElement(imageGallery, { id: itemId }, null),
+        document.getElementById('image-gallery')
+      );
+    </script>  
   </body>
 </html>
