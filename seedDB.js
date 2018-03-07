@@ -5,7 +5,6 @@ const seedData = require('./seed_data');
 const app = express();
 const PGDATABASE = 'image';
 
-
 const config = {
   database: PGDATABASE, // name of the database
   max: 10, // max number of clients in the pool
@@ -14,7 +13,6 @@ const config = {
 
 const pool = new pg.Pool(config);
 let myClient;
-
 
 pool.connect((err, client) => {
   if (err) {
