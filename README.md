@@ -23,7 +23,7 @@ Run the command: `source ~/.zshrc` to reload your configuration.
 Run the alias you just created: `pg-start`. Use this comment to start your database service.
      - alternatively, `pg-stop` stops your database service.
 
-Run the command: ``createdb `image` ``
+Run the command: ``createdb 'image' ``
 
 Connect to your postgres with the command: `psql`
 
