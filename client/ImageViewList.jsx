@@ -7,7 +7,7 @@ const ImageViewList = ({ images, handleClick }) => {
         images.map((image) => {
           return (
             <div className="image-view-list-entry">
-              <img src={`http://localhost:3003/newRoute/${image.large_image_url}`}
+              <img src={`/newRoute/${image.large_image_url}`}
                 onClick={e => handleClick(e)}
               />
             </div>
