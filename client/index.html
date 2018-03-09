@@ -11,9 +11,10 @@
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script src="bundle.js"></script>
     <script>
-      const itemId = Math.floor(Math.random() * 299);
+      // return the querystring part of a URL - URL + /?id=x
+      const itemNumber = window.location.search.slice(4) || 0;
       ReactDOM.render(
-        React.createElement(imageGallery, { id: itemId }, null),
+        React.createElement(imageGallery, { id: itemNumber }, null),
         document.getElementById('image-gallery')
       );
     </script>  

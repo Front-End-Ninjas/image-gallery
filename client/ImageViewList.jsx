@@ -7,7 +7,7 @@ const ImageViewList = ({ images, handleClick }) => {
         images.map((image) => {
           return (
             <div className="image-view-list-entry">
-              <img src={`/newRoute/${image.large_image_url}`}
+              <img src={`http://imagegallery-env.us-west-1.elasticbeanstalk.com/newRoute/${image.large_image_url}`}
                 onClick={e => handleClick(e)}
               />
             </div>

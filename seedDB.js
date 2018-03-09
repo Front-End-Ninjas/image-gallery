@@ -25,9 +25,9 @@ pool.connect((err, client) => {
 
   // WORKING CODE HERE -- IF TABLE EXISTS COMMENT IN LINE 35
   // myClient.query('DROP TABLE images;');
-  myClient.query('CREATE TABLE images (product_id int, large_image_url varchar, small_gallery_image_url varchar);');
+  myClient.query('CREATE TABLE image (product_id int, large_image_url varchar, small_gallery_image_url varchar);');
   seedData.forEach((data) => {
-    client.query('INSERT INTO images (product_id, large_image_url, small_gallery_image_url) values ($1, $2, $3);', [data.product_id, data.large_image_url, data.small_gallery_image_url]);
+    client.query('INSERT INTO image (product_id, large_image_url, small_gallery_image_url) values ($1, $2, $3);', [data.product_id, data.large_image_url, data.small_gallery_image_url]);
   });
 });
 
