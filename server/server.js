@@ -4,4 +4,4 @@ const app = require('./app');
 
 client.connect();
 
-app.listen(8081, () => console.log('listening on port 8081')); // eslint-disable-line no-console
+app.listen(8080, () => console.log('listening on port 8080')); // eslint-disable-line no-console
